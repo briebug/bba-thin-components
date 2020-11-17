@@ -1,6 +1,10 @@
-# Enteprise Patterns Course
+# Thin Components Example
 
-This is the sample project for the Enteprise Patterns course for Frontend Masters.
+This is an example demonstrating how we can use proper abstractions to manipulate space and time with thin components.
+
+
+![image](https://user-images.githubusercontent.com/1544557/38834610-cbb84af6-417d-11e8-9cb6-64c3a364af6b.png)
+
 
 ## Prerequisites
 
@@ -11,31 +15,22 @@ This is the sample project for the Enteprise Patterns course for Frontend Master
 ## Web: Getting Started
 
 ```
-git clone https://github.com/onehungrymind/fem-enterprise-patterns.git
-cd fem-enterprise-patterns
+git clone https://github.com/onehungrymind/bba-thin-components.git
+cd bba-thin-components
 yarn
+yarn serve:all
 ```
+The client application will open to [http://localhost:4200](http://localhost:4200) in your browser.
 
-You can run the **micro** app via `npm run serve:micro`
-
-The micro application will open to [http://localhost:4400](http://localhost:4400) in your browser.
-
-You can run the **meso** app via `npm run serve:meso`
-
-The meso application will open to [http://localhost:4500](http://localhost:4500) in your browser.
-
-You can run the **macro** app via `npm run serve:all`
-
-The micro application will open to [http://localhost:4200](http://localhost:4200) in your browser.
-
-The `serve:all` command is a convenience methods that runs the `serve:api` and `serve:macro` commands concurrently. You can run each command separately if you need to.
+The `serve:all` command is a convenience methods that runs multiple commands concurrently. You can run each command separately if you need to.
 
 ```
+"start": "ng serve",
+"serve:socketio": "node ./server/server.js",
+"serve:json": "json-server server/db.json --port 3100 --watch",
 "serve:api": "nx run api:serve",
-"serve:micro": "nx run micro:serve --port=4400 --open",
-"serve:meso": "nx run meso:serve --port=4500 --open",
-"serve:macro": "ng serve --open",
-"serve:all": "concurrently \"npm run serve:api\" \"npm run serve:macro\"",
+"serve:client": "nx run client:serve --open",
+"serve:all": "concurrently \"npm run serve:socketio\" \"npm run serve:api\" \"npm run serve:client\"",
 ```
 
 > Note: the above terminal commands are for Mac. Remember to substitute the appropriate commands for your OS.
